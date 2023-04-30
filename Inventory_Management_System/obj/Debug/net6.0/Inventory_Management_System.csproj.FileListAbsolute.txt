@@ -1,0 +1,15 @@
+D:\visual stdio\IMP_projects\Inventory_Management_System\bin\Debug\net6.0\Inventory_Management_System.exe
+D:\visual stdio\IMP_projects\Inventory_Management_System\bin\Debug\net6.0\Inventory_Management_System.deps.json
+D:\visual stdio\IMP_projects\Inventory_Management_System\bin\Debug\net6.0\Inventory_Management_System.runtimeconfig.json
+D:\visual stdio\IMP_projects\Inventory_Management_System\bin\Debug\net6.0\Inventory_Management_System.dll
+D:\visual stdio\IMP_projects\Inventory_Management_System\bin\Debug\net6.0\Inventory_Management_System.pdb
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.csproj.AssemblyReference.cache
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.AssemblyInfoInputs.cache
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.AssemblyInfo.cs
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.csproj.CoreCompileInputs.cache
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.dll
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\refint\Inventory_Management_System.dll
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.pdb
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\Inventory_Management_System.genruntimeconfig.cache
+D:\visual stdio\IMP_projects\Inventory_Management_System\obj\Debug\net6.0\ref\Inventory_Management_System.dll
