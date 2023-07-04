@@ -1,57 +1,36 @@
-using System;
-using System.Collections.Generic;
-using Inventory_Management_System;
+﻿
+using Retail_Store;
 
-
-
-
-List<Retail_Store> inventory = new List<Retail_Store>();
 Console.CursorVisible = false;
 Console.Clear();
 Console.ForegroundColor = ConsoleColor.Red;
 Console.BackgroundColor = ConsoleColor.Yellow;
 
+List<Item> products = new List<Item>();
 
 while (true)
 {
-    Console.WriteLine();
-    Console.WriteLine("***************  Welcome To IMP Retail Store ***************");
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine();
-    Console.WriteLine();
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine("         1. Add new item to inventory".PadRight(60));
-    Console.WriteLine("         2. Update the item".PadRight(60));
-    Console.WriteLine("         3. Display inventory".PadRight(60));
-    Console.WriteLine("         4. Search item by name or ID".PadRight(60));
-    Console.WriteLine("         5. Remove item from inventory".PadRight(60));
-    Console.WriteLine("         6. Exit".PadRight(60));
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine();
-    Console.Write("\nEnter choice: ");
-    int choice = Convert.ToInt32(Console.ReadLine());
-    Console.Clear();
-    switch (choice)
+    int opt = Features.choice();
+    switch (opt)
     {
         case 1:
-            AddItem();
-            Console.Clear();
+            Features.AddItem(products);
             break;
 
         case 2:
-            UpdateItem();
+            Features.UpdateItem(products);
             break;
 
         case 3:
-            DisplayInventory();
+            Features.DisplayInventory(products);
             break;
 
         case 4:
-            Search_Item();
+            Features.Search_Item(products);
             break;
 
         case 5:
-            Remove_Item();
+            Features.Remove_Item(products);
             break;
 
         case 6:
@@ -65,202 +44,3 @@ while (true)
             break;
     }
 }
-void AddItem()
-{
-    Console.WriteLine();
-    Console.WriteLine("***************  Welcome To IMP Retail Store ***************");
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine();
-    Console.Write("\nEnter item name: ");
-    string name = Console.ReadLine();
-
-    Console.Write("Enter item quantity: ");
-    int quantity = Convert.ToInt32(Console.ReadLine());
-
-    Console.Write("Enter item price: ");
-    double price = Convert.ToDouble(Console.ReadLine());
-
-    inventory.Add(new Retail_Store(name, quantity, price));
-    Console.WriteLine($"{name} has been added to the inventory.");
-}
-
-void UpdateItem()
-{
-    Console.WriteLine();
-    Console.WriteLine("***************  Welcome To IMP Retail Store ***************");
-    Console.WriteLine("------------------------------------------------------------");
-    Console.Write("\nEnter item name: ");
-    string itemToUpdate = Console.ReadLine();
-    Console.WriteLine();
-    Console.WriteLine("1.Change The Quantity.");
-    Console.WriteLine("2.Change The Price.");
-    Console.WriteLine("3.Change Both Quantity and Price.");
-    Console.WriteLine("4.Change All");
-    Console.WriteLine();
-    Console.WriteLine();
-    Console.Write("Enter an option : ");
-    int opt = int.Parse(Console.ReadLine());
-    if (opt == 4)
-    {
-        Console.Write("\nEnter item new name: ");
-        string newName = Console.ReadLine();
-
-        Console.Write("Enter new quantity: ");
-        int newQuantity = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Enter new Price: ");
-        int newPrice = Convert.ToInt32(Console.ReadLine());
-
-        foreach (Retail_Store item in inventory)
-        {
-            if (item.Name == itemToUpdate)
-            {
-                item.Name = newName;
-                item.Quantity = newQuantity;
-                item.Price = newPrice;
-                Console.WriteLine($"{item.Name} has been updated.");
-                break;
-            }
-        }
-    }
-    else if(opt == 1) 
-    {
-        Console.Write("Enter new quantity: ");
-        int newQuantity = Convert.ToInt32(Console.ReadLine());
-        foreach (Retail_Store item in inventory)
-        {
-            if (item.Name == itemToUpdate)
-            {
-                item.Quantity = newQuantity;
-                Console.WriteLine($"{item.Name} has been updated.");
-                break;
-            }
-        }
-    }
-    else if (opt == 2)
-    {
-        Console.Write("Enter new Price: ");
-        int newPrice = Convert.ToInt32(Console.ReadLine());
-        foreach (Retail_Store item in inventory)
-        {
-            if (item.Name == itemToUpdate)
-            {
-                item.Price = newPrice;
-                Console.WriteLine($"{item.Name} has been updated.");
-                break;
-            }
-        }
-    }
-    else if (opt == 3)
-    {
-        Console.Write("Enter new quantity: ");
-        int newQuantity = Convert.ToInt32(Console.ReadLine());
-        Console.Write("Enter new Price: ");
-        int newPrice = Convert.ToInt32(Console.ReadLine());
-        foreach (Retail_Store item in inventory)
-        {
-            if (item.Name == itemToUpdate)
-            {
-                item.Price = newPrice;
-                item.Quantity = newQuantity;
-                Console.WriteLine($"{item.Name} has been updated.");
-                break;
-            }
-        }
-    }
-}
-
-void DisplayInventory()
-{
-    Console.WriteLine();
-    Console.WriteLine("***************  Welcome To IMP Retail Store ***************");
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine();
-    Console.WriteLine();
-    if (inventory.Any())
-    {
-        Console.WriteLine("\n******************** Current Inventory ********************");
-        Console.WriteLine();
-        string t = "ID".PadRight(10);
-        string t1 = "NAME".PadRight(15);
-        string t2 = "QUANTITY".PadRight(15);
-        string t3 = "PRICE".PadRight(15);
-        Console.WriteLine("------------------------------------------------------------");
-        Console.WriteLine(t + t1 + t2 + t3);
-        Console.WriteLine("------------------------------------------------------------");
-        foreach (Retail_Store item in inventory)
-        {
-            string temp_id = item.Id.ToString().PadRight(10);
-            string temp_name = item.Name.ToString().PadRight(15);
-            string temp_quantity = item.Quantity.ToString().PadRight(15);
-            string temp_price = item.Price.ToString().PadRight(15);
-            
-            Console.WriteLine(temp_id + temp_name + temp_quantity + temp_price);
-        } 
-    }
-    Console.WriteLine("------------------------------------------------------------");
-    Console.ReadKey();
-    Console.Clear();
-}
-
-void Search_Item()
-{
-    Console.WriteLine();
-    Console.WriteLine("***************  Welcome To IMP Retail Store ***************");
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine();
-    Console.WriteLine("1.Search with ID.");
-    Console.WriteLine("2.Search with NAME.");
-    Console.WriteLine();
-    Console.Write("Enter an option : ");
-    int opt = int.Parse(Console.ReadLine());
-    if (opt == 1)
-    {
-        Console.Write("\nEnter item ID: ");
-        int itrm_id = int.Parse(Console.ReadLine());
-        
-        foreach (Retail_Store item in inventory)
-        {
-            if (item.Id == itrm_id)
-            {
-                Console.WriteLine($"{item.Name} ({item.Id}) - Quantity: {item.Quantity}, Price: ${item.Price}");
-                break;
-            }
-        }
-    }
-    else if (opt == 2)
-    {
-        Console.Write("\nEnter item name: ");
-        string searchItem = Console.ReadLine();
-        foreach (Retail_Store item in inventory)
-        {
-            if (item.Name == searchItem)
-            {
-                Console.WriteLine($"{item.Name} ({item.Id}) - Quantity: {item.Quantity}, Price: ${item.Price}");
-                break;
-            }
-        }
-    }
-}
-
-void Remove_Item()
-{
-    Console.WriteLine();
-    Console.WriteLine("***************  Welcome To IMP Retail Store ***************");
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine();
-    Console.Write("\nEnter item name to remove: ");
-    string itemToRemove = Console.ReadLine();
-
-    int removedItems = inventory.RemoveAll(item => item.Name == itemToRemove);
-    
-    if (removedItems > 0)
-    {
-        Console.WriteLine($"{removedItems} {itemToRemove} has been removed from the inventory.");
-    }
-    else
-    {
-        Console.WriteLine($"{itemToRemove} was not found in the inventory.");
-    }
-}
-
